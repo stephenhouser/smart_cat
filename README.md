@@ -1,3 +1,14 @@
+
+* electron official quick start -- https://www.electronjs.org/docs/tutorial/quick-start -- has ipcRenderer
+
+* tcp socket programming in node -- https://www.hacksparrow.com/nodejs/tcp-socket-programming-in-node-js.html
+* building electron tutorial -- https://www.tutorialspoint.com/electron/electron_building_uis.htm
+* nodered javascript parsing vita-49 -- https://discourse.nodered.org/t/vita-49-decoding/20792/3
+* udp.js -- example UDP in javascript -- https://gist.github.com/sid24rane/6e6698e93360f2694e310dd347a2e2eb
+
+
+* flex discovery protocol -- http://wiki.flexradio.com/index.php?title=Discovery_protocol
+
 # electron-quick-start
 
 **Clone and run for a quick way to see Electron in action.**
