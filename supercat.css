@@ -3,3 +3,11 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+#radio_list {
+	width: 100%;
+}
+
+#radio_list tr th {
+	witdh: 20%;
+}

@@ -27,7 +27,9 @@
     "electron": "^12.0.5"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "flexradio": "file:flexradio-js/flexradio",
+    "vita-49": "file:flexradio-js/vita-49"
   },
   "config": {
     "forge": {
