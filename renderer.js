@@ -14,8 +14,7 @@ const vita_discovery_stream = 0x00000800;
 const vita_flex_oui = 0x00001c2d;
 const vita_flex_information_class = 0x534cffff;
 
-function addRadio(radio) {
-
+function showRadios(radios) {
 		// 	discovery_protocol_version: "3.0.0.1",
 		// 	model: "FLEX-6600M",
 		// 	serial: "0621-1104-6601-1641",
@@ -39,14 +38,15 @@ function addRadio(radio) {
 		// 	gui_client_handles: "\u0000\u0000\u0000",
 		//   }
 	const radio_list = document.getElementById('radio_list')
-	
-
-	newRow.innerHTML = '<tr>'
-		+ '<td>' + radio.nickname + '</td>'
-		+ '<td>' + radio.model + '</td>'
-		+ '<td>' + radio.version + '</td>'
-		+ '<td>' + radio.ip + ':' + radio.port + '</td>'
-		+ '</tr>';
+	for (key in radios) {
+		const radio = radios[key];
+		radio_list.innerHTML = '<tr>'
+			+ '<td>' + key + '</td>'
+			+ '<td>' + radio.model + '</td>'
+			+ '<td>' + radio.version + '</td>'
+			+ '<td>' + radio.ip + ':' + radio.port + '</td>'
+			+ '</tr>';
+	}
 }
 
 const flex_discover = require('flexradio/Discovery');
@@ -55,13 +55,20 @@ const radio_discovery = new flex_discover.Discovery(null, 4992);
 const radios = {};
 
 radio_discovery.on('radio', function(radio) {
-	console.log('radio!');
+	console.log('radio!' + radio);
 
-	logarea.value += 'Received: ' + radio.toString() + '\n';
+	logarea.value += 'Received: ' + radio.nickname + '\n';
 
 	radios[radio.nickname] = radio;
-	showRadios(radio);
+	showRadios(radios);
 })
 
 console.log("starting...");
 radio_discovery.Start();
+
+// const { Radio } = require('flexradio/Radio');
+// const radio = new Radio({ip:'192.168.10.27', port:4992});
+// radio.on('error', function(err) {
+// 	console.log(err);
+// });
+// radio.Connect();
